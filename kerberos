@@ -1,3 +1,6 @@
+https://kb.iu.edu/d/aumh
+
+# Creating a keytab file
 > ktutil
   ktutil:  addent -password -p username@ADS.IU.EDU -k 1 -e rc4-hmac
   Password for username@ADS.IU.EDU: [enter your password]
@@ -5,3 +8,13 @@
   Password for username@ADS.IU.EDU: [enter your password]
   ktutil:  wkt username.keytab
   ktutil:  quit 
+
+# Using a keytab to authenticate
+> kinit username@ADS.IU.EDU -k -t mykeytab
+
+# Listing the keys
+> klist
+> klist -k mykeytab
+
+# Destroying keys
+> kdestroy
